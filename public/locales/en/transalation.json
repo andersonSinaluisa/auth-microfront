@@ -1,0 +1,18 @@
+{
+    "title": "APP_NAME",
+    "email": "Correo",
+    "enter_your_email": "Ingresa tu correo",
+    "password": "Contraseña",
+    "enter_your_password": "Ingresa tu contraseña",
+    "rememberme": "Recordarme",
+    "login": "Inicia sesión",
+    "forgot_password": "¿Recuperar tu contraseña?",
+    "invalid_email": "Invalid email",
+    "new_password": "New password",
+    "confirm_password": "Confirm password",
+    "enter_new_password":"Enter your new password",
+    "enter_confirm_password": "Confirm new password",
+    "create_new_password":"Set a new password",
+    "verify_your_email": "Verify your email",
+    
+}

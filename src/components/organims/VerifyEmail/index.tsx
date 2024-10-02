@@ -1,0 +1,8 @@
+
+
+const VerifyEmail = ()=>{
+  return (
+   <VerifyEmailCard
+    
+  )
+}

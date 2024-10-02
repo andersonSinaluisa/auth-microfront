@@ -1,7 +1,7 @@
 import {  AxiosError } from "axios";
 import { Api } from "../config/constans";
 import { LoginDto } from "./Dtos";
-
+import {LOGIN_URL} from '../config/endpoints'
 
 export class AuthService{
     
@@ -9,7 +9,7 @@ export class AuthService{
     async login(data:LoginDto){
 
         try{
-            const res = await Api.post('/auth/login',data)
+            const res = await Api.post(LOGIN_URL ,data)
 
             return res.data
 
@@ -20,5 +20,10 @@ export class AuthService{
                 throw new Error('Ocurrio un error con el servicio de autenticacion')
             }
         }
+    }
+
+
+    async resetPassword(data){
+        
     }
 }

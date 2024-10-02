@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next"
 import { LoginDto } from "../../../services/Dtos"
 import { useForm } from "react-hook-form"
-import { Alert, BasicInput, Checkbox, Button } from "as-react-frest";
-
+import { Alert, BasicInput, Checkbox, Button, PasswordInput } from "as-react-frest";
+import {CREATE_PASSWORD} from '../../../config/routes.path'
+import {Link} from 'react-router-dom'
 interface Props {
     onSubmit: (data: LoginDto) => void;
     error: string;
@@ -24,7 +25,7 @@ const LoginForm = (props: Props) => {
     };
     return (
         <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(_handleSubmit)}>
-            <Alert
+            {props.error && <Alert
                     color="danger"
                     message={props.error}
                     title="Error"
@@ -32,7 +33,7 @@ const LoginForm = (props: Props) => {
                     icon={<i className="bx bx-xs bx-error me-2"></i>}
                     onClose={props.onClosed}
                     isSolid={false}
-                />
+                />}
             
             <BasicInput
                 label={t('email')}
@@ -46,20 +47,18 @@ const LoginForm = (props: Props) => {
 
             />
 
-            <BasicInput
-                type="password"
+            <PasswordInput
                 id="password"
                 placeholder={t('enter_your_password')}
                 label={t('password')}
                 {...register("password", { required: t('enter_your_password') })}
-                helpText=""
-                error={errors.password?.message}
+                error={errors.password?.message||''}
             />
 
             <div className="d-flex justify-content-between">
-                <a href="auth-forgot-password-cover.html">
+                <Link to={CREATE_PASSWORD}>
                     <small>{t('forgot_password')}</small>
-                </a>
+                </Link>
             </div>
             <div className="mb-3">
                 <Checkbox
