@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { LoginDto } from "../../../services/Dtos"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { Alert, BasicInput, Checkbox, Button, PasswordInput } from "as-react-frest";
 import {getRoutes} from '../../../config/routes.path'
 import {Link} from 'react-router-dom'
@@ -13,11 +13,12 @@ interface Props {
 
 const LoginForm = (props: Props) => {
     const {
-        register,
         watch,
         handleSubmit,
+        control,
         formState: { errors },
     } = useForm<LoginDto>();
+    
     const {  t } = useTranslation()
 
     console.log(watch());
@@ -37,22 +38,37 @@ const LoginForm = (props: Props) => {
                     isSolid={false}
                 />}
             
-            <BasicInput
-                {...register("email", { required: t('enter_your_email') })}
-                label={t('email')}
-                type="text"
-                placeholder={t('enter_your_email')}
-                id="email"
-                helpText=""
-                error={errors.email?.message}
+            <Controller
+                name="email"
+                control={control}
+                render={({ field }) => (
+                    <BasicInput
+                        {...field}
+                        label={t('email')}
+                        type="text"
+                        placeholder={t('enter_your_email')}
+                        id="email"
+                        helpText=""
+                        error={errors.email?.message}
+                    />
+                )}
+                rules={{ required: t('enter_your_email') }}
             />
-            <PasswordInput
-                id="password"
-                placeholder={t('enter_your_password')}
-                text={t('password')}
-                {...register("password", { required: t('enter_your_password') })}
-                error={errors.password?.message||''}
+            <Controller
+                name="password"
+                control={control}
+                render={({ field }) => (
+                    <PasswordInput
+                        {...field}
+                        id="password"
+                        placeholder={t('enter_your_password')}
+                        text={t('password')}
+                        error={errors.password?.message||''}
+                    />
+                )}
+                rules={{ required: t('enter_your_password') }}
             />
+            
             <div className="d-flex justify-content-between">
                 <Link to={getRoutes('FORGOT_PASSWORD')}>
                     <small>{t('forgot_password')}</small>

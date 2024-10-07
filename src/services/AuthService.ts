@@ -9,7 +9,9 @@ export class AuthService{
     async login(data:LoginDto){
 
         try{
-            const res = await Api.post(LOGIN_URL ,data)
+            const res = await Api.post(LOGIN_URL ,data,{
+                withCredentials: true
+            })
 
             return res.data
 

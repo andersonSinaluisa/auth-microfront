@@ -1,5 +1,5 @@
 
-import { Alert, PasswordInput, Checkbox, Button } from "as-react-frest";
+import { Alert, PasswordInput, Button } from "as-react-frest";
 import { ResetPasswordDto } from "../../../services/Dtos";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
@@ -37,10 +37,9 @@ const ResetPasswordForm = (props:ResetPasswordFormProps)=>{
                 />}
             
             <PasswordInput
-                label={t('new_password')}
+                text={t('new_password')}
                 id="new_password"
                 autoFocus
-                helpText=""
                 {...register("new_password", { required: t('enter_new_password') })}
                 error={errors.new_password?.message}
                 placeholder=""
@@ -51,7 +50,7 @@ const ResetPasswordForm = (props:ResetPasswordFormProps)=>{
             <PasswordInput
                 id="confirm_password"
                 placeholder={t('enter_your_password')}
-                label={t('password')}
+                text={t('password')}
                 {...register("confirm_password", { required: t('enter_your_password') })}
                 error={errors.confirm_password?.message}
             />
