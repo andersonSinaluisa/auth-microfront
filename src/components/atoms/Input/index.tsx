@@ -15,10 +15,11 @@ const Input = ({ label, classNameContainer = '', className = '', id, register, .
                 {label}
             </label>
             <input
-                {...register} // Register applied here
+                
                 id={id}
                 className={`form-control ${className}`}
                 {...rest} // Spreading other props if needed
+                {...register} // Register applied here
             />
         </div>
     );

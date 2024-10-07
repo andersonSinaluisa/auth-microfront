@@ -13,5 +13,7 @@
     "enter_new_password":"Ingresa la nueva contraseña",
     "enter_confirm_password": "Ingresa la contraseña",
     "create_new_password":"Crea la nueva contraseña",
-    "verify_your_email": "Verifica tu correo electronico"
+    "verify_your_email": "Verifica tu correo electronico",
+    "back_to_login": "Regresar al inicio",
+    "reset_password": "Restablecer contraseña"
 }

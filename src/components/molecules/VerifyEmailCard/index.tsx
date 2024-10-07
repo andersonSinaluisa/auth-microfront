@@ -1,9 +1,11 @@
 
 import {Card, CardBody} from 'as-react-frest';
+import React from 'react';
 
 
 interface PropsVerifyEmail{
   title:string;
+  icon? :React.ReactNode;
   description:string;
   textSkip:string;
   onSkip:()=>void
@@ -15,21 +17,23 @@ const VerifyEmailCard = (props:PropsVerifyEmail)=>{
   return(
     <Card>
       <CardBody>
-        <> <h4 class="mb-2">{props.title}</h4>
-            <p class="text-start">
-              {props.subtitle}
+        <>
+          <div className="app-brand justify-content-center">
+          {props.icon}
+          </div>
+         <h4 className="mb-2">{props.title}</h4>
+            <p className="text-start">
+            {props.description}
             </p>
-            <a class="btn btn-primary w-100 my-3" href="#"
-            onClick={()=>props.onSkip()}
-            
-            > {props.textSkip} </a>
-            <p class="text-center">
+            <a className="btn btn-primary w-100 my-3" href="#"
+            onClick={()=>props.onSkip()}> {props.textSkip} </a>
+            <p className="text-center">
              {props.textQuestion}
               <a href="javascript:void(0);"
               onClick={()=>props.onResend()}
               > {props.textResend} </a>
             </p>
-            </>
+        </>
       </CardBody>
     </Card>
     

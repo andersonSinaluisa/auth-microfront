@@ -14,5 +14,6 @@
     "enter_confirm_password": "Confirm new password",
     "create_new_password":"Set a new password",
     "verify_your_email": "Verify your email",
-    
+    "back_to_login": "Back to login",
+    "reset_password": "Reset password"
 }

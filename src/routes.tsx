@@ -4,16 +4,29 @@ import {
 import "./index.css";
 import LoginPage from "./pages/LoginPage";
 import ResetPasswordPage from './pages/ResetPasswordPage'
-import {CREATE_PASSWORD,HOME} from './config/routes.path'
+import { getRoutes} from './config/routes.path'
+import VerifyEmailPage from "./pages/VerifyEmailPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+
+//OBTENER EL IDIOMA
+
 
 const router = createBrowserRouter([
     {
-        path: HOME,
+        path: getRoutes('HOME'),
         element: <LoginPage />,
     },
     {
-        path:CREATE_PASSWORD,
+        path: getRoutes('VERIFY_EMAIL'),
+        element: <VerifyEmailPage/>
+    },
+    {
+        path: getRoutes('CREATE_PASSWORD'),
         element:<ResetPasswordPage/>
+    },
+    {
+        path:getRoutes('FORGOT_PASSWORD'),
+        element: <ForgotPasswordPage/>
     }
     
 ]);

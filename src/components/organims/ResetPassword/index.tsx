@@ -1,4 +1,5 @@
 
+import { ResetPasswordDto } from "../../../services/Dtos";
 import ImageCover from "../../atoms/ImageCover";
 import ResetPasswordForm from "../../molecules/ResetPasswordForm";
 interface Props{
