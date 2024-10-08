@@ -11,6 +11,7 @@ const LoginPage = () => {
 
     const [error, setError] = React.useState<string>('')
     const handleSubmit = (data:LoginDto)=>{
+        
         authService.login(data).then((res)=>{
             setError('')
             window.dispatchEvent(new CustomEvent(Events.LOGIN, {detail: res}))

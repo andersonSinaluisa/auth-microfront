@@ -13,7 +13,6 @@ interface Props {
 
 const LoginForm = (props: Props) => {
     const {
-        watch,
         handleSubmit,
         control,
         formState: { errors },
@@ -21,7 +20,6 @@ const LoginForm = (props: Props) => {
     
     const {  t } = useTranslation()
 
-    console.log(watch());
     const _handleSubmit = (data: LoginDto) => {
         props.onSubmit(data);
     };
