@@ -10,26 +10,25 @@ const LoginPage = () => {
 
 
     const [error, setError] = React.useState<string>('')
-    const handleSubmit = (data:LoginDto)=>{
-        
-        authService.login(data).then((res)=>{
+    const handleSubmit = (data: LoginDto) => {
+
+        authService.login(data).then((res) => {
             setError('')
-            window.dispatchEvent(new CustomEvent(Events.LOGIN, {detail: res}))
-        }).catch((err)=>{
+            window.dispatchEvent(new CustomEvent(Events.LOGIN, { detail: res }))
+        }).catch((err) => {
             setError(err.message)
 
         })
     }
-    const onClosed = ()=>{
+    const onClosed = () => {
         setError('')
     }
 
     return (
         <Login
-        handleSubmit={handleSubmit}
-        error={error}
-        onClosed={onClosed}
-        visible={error!==''}
+            handleSubmit={handleSubmit}
+            error={error}
+            onClosed={onClosed}
 
         />
     )

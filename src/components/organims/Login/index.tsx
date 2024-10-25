@@ -3,13 +3,12 @@ import { LoginDto } from "../../../services/Dtos";
 import ImageCover from "../../atoms/ImageCover";
 import LoginForm from "../../molecules/LoginForm";
 
-interface Props{
-    handleSubmit:(data:LoginDto)=>void
-    error:string,
-    onClosed:()=>void
-    visible:boolean
+interface Props {
+    handleSubmit: (data: LoginDto) => void
+    error: string,
+    onClosed: () => void
 }
-const Login = (props:Props) => {
+const Login = (props: Props) => {
 
     return (
         <div className="authentication-wrapper authentication-cover">
@@ -18,12 +17,12 @@ const Login = (props:Props) => {
                 <div className="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center">
                     <ImageCover
                         img="/assets/img/pages/login-light.png"
-                        title={"Inicia Sesión en "+APP_NAME}
+                        title={"Inicia Sesión en " + APP_NAME}
                         subtitle={<p className="mb-4">Please sign-in to your account and start the adventure</p>}
                     >
-                       
 
-                </ImageCover>
+
+                    </ImageCover>
                 </div>
                 {/* /Left Text */}
 
@@ -40,7 +39,6 @@ const Login = (props:Props) => {
                             onSubmit={props.handleSubmit}
                             error={props.error}
                             onClosed={props.onClosed}
-                            visible={props.visible}
                         />
 
 

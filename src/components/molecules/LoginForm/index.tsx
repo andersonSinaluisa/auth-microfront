@@ -2,13 +2,12 @@ import { useTranslation } from "react-i18next"
 import { LoginDto } from "../../../services/Dtos"
 import { Controller, useForm } from "react-hook-form"
 import { Alert, BasicInput, Checkbox, Button, PasswordInput } from "as-react-frest";
-import {getRoutes} from '../../../config/routes.path'
-import {Link} from 'react-router-dom'
+import { getRoutes } from '../../../config/routes.path'
+import { Link } from 'react-router-dom'
 interface Props {
     onSubmit: (data: LoginDto) => void;
     error: string;
     onClosed: () => void;
-    visible: boolean;
 }
 
 const LoginForm = (props: Props) => {
@@ -17,8 +16,8 @@ const LoginForm = (props: Props) => {
         control,
         formState: { errors },
     } = useForm<LoginDto>();
-    
-    const {  t } = useTranslation()
+
+    const { t } = useTranslation()
 
     const _handleSubmit = (data: LoginDto) => {
         props.onSubmit(data);
@@ -27,15 +26,15 @@ const LoginForm = (props: Props) => {
     return (
         <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(_handleSubmit)}>
             {props.error && <Alert
-                    color="danger"
-                    message={props.error}
-                    title="Error"
-                    isCloseable={true}
-                    icon={<i className="bx bx-xs bx-error me-2"></i>}
-                    onClose={props.onClosed}
-                    isSolid={false}
-                />}
-            
+                color="danger"
+                message={props.error}
+                title="Error"
+                isCloseable={true}
+                icon={<i className="bx bx-xs bx-error me-2"></i>}
+                onClose={props.onClosed}
+                isSolid={false}
+            />}
+
             <Controller
                 name="email"
                 control={control}
@@ -61,12 +60,12 @@ const LoginForm = (props: Props) => {
                         id="password"
                         placeholder={t('enter_your_password')}
                         text={t('password')}
-                        error={errors.password?.message||''}
+                        error={errors.password?.message || ''}
                     />
                 )}
                 rules={{ required: t('enter_your_password') }}
             />
-            
+
             <div className="d-flex justify-content-between">
                 <Link to={getRoutes('FORGOT_PASSWORD')}>
                     <small>{t('forgot_password')}</small>

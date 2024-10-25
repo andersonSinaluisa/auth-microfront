@@ -12,36 +12,35 @@ interface ResetPasswordFormProps {
 }
 
 
-const ResetPasswordForm = (props:ResetPasswordFormProps)=>{
-  const {
+const ResetPasswordForm = (props: ResetPasswordFormProps) => {
+    const {
         register,
-        watch,
         handleSubmit,
         formState: { errors },
     } = useForm<ResetPasswordDto>();
-    const {  t } = useTranslation()
+    const { t } = useTranslation()
 
     const _handleSubmit = (data: ResetPasswordDto) => {
         props.onSubmit(data);
     };
-  return(
-     <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(_handleSubmit)}>
+    return (
+        <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(_handleSubmit)}>
             {props.error && <Alert
-                    color="danger"
-                    message={props.error}
-                    title="Error"
-                    isCloseable={true}
-                    icon={<i className="bx bx-xs bx-error me-2"></i>}
-                    onClose={props.onClosed}
-                    isSolid={false}
-                />}
-            
+                color="danger"
+                message={props.error}
+                title="Error"
+                isCloseable={true}
+                icon={<i className="bx bx-xs bx-error me-2"></i>}
+                onClose={props.onClosed}
+                isSolid={false}
+            />}
+
             <PasswordInput
                 text={t('new_password')}
-                id="new_password"
+                id="newPassword"
                 autoFocus
-                {...register("new_password", { required: t('enter_new_password') })}
-                error={errors.new_password?.message}
+                {...register("newPassword", { required: t('enter_new_password') })}
+                error={errors.newPassword?.message}
                 placeholder=""
 
 
@@ -51,8 +50,8 @@ const ResetPasswordForm = (props:ResetPasswordFormProps)=>{
                 id="confirm_password"
                 placeholder={t('enter_your_password')}
                 text={t('password')}
-                {...register("confirm_password", { required: t('enter_your_password') })}
-                error={errors.confirm_password?.message}
+                {...register("confirmPassword", { required: t('enter_your_password') })}
+                error={errors.confirmPassword?.message}
             />
 
             <div className="d-flex justify-content-between mb-3">
@@ -67,6 +66,6 @@ const ResetPasswordForm = (props:ResetPasswordFormProps)=>{
                 {t('create_new_password')}
             </Button>
         </form>
-  )
+    )
 }
 export default ResetPasswordForm

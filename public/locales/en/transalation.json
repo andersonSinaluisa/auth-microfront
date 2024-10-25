@@ -10,10 +10,11 @@
     "invalid_email": "Invalid email",
     "new_password": "New password",
     "confirm_password": "Confirm password",
-    "enter_new_password":"Enter your new password",
+    "enter_new_password": "Enter your new password",
     "enter_confirm_password": "Confirm new password",
-    "create_new_password":"Set a new password",
+    "create_new_password": "Set a new password",
     "verify_your_email": "Verify your email",
     "back_to_login": "Back to login",
-    "reset_password": "Reset password"
+    "reset_password": "Reset password",
+    "send_mail_forgot_password": "Te enviamos un enlace a tu correo electronico para que puedas recuperar tu contraseña, si no lo ves revisa la carpeta de spam 📧"
 }
