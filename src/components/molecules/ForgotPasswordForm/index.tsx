@@ -1,9 +1,10 @@
-import { Alert, BasicInput, Button, Card, CardBody } from "as-react-frest"
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 import { getRoutes } from "../../../config/routes.path";
 import { ForgotPasswordDto } from "../../../services/Dtos";
 import { Controller, useForm } from "react-hook-form";
+import { Button, Card, CardBody, Input } from "@nextui-org/react";
+import Alert from "../../atoms/Alter";
 
 interface PropsForgotPasswordForm {
   icon?: React.ReactNode;
@@ -32,6 +33,9 @@ const ForgotPasswordForm = (props: PropsForgotPasswordForm) => {
 
   const _handleSubmit = (data: ForgotPasswordDto) => {
     data.link_password = window.location.origin + getRoutes('CREATE_PASSWORD') + "/"
+    console.log(data
+
+    )
     props.onSubmit(data);
   };
   return (
@@ -52,9 +56,7 @@ const ForgotPasswordForm = (props: PropsForgotPasswordForm) => {
             message={props.error.message}
             title={props.error.title}
             isCloseable={true}
-            icon={<i className="bx bx-xs bx-error me-2"></i>}
             onClose={props.error.onClosed}
-            isSolid={false}
           />}
           {
             props.success && <Alert
@@ -62,9 +64,7 @@ const ForgotPasswordForm = (props: PropsForgotPasswordForm) => {
               message={props.success.message}
               title={props.success.title}
               isCloseable={true}
-              icon={<i className="bx bx-xs bx-check me-2"></i>}
               onClose={props.success.onClosed}
-              isSolid={false}
             />
 
           }
@@ -76,21 +76,22 @@ const ForgotPasswordForm = (props: PropsForgotPasswordForm) => {
                 name="email"
                 control={control}
                 render={({ field }) => (
-                  <BasicInput
+                  <Input
                     {...field}
                     label={t('email')}
                     type="text"
                     placeholder={t('enter_your_email')}
                     id="email"
-                    helpText=""
-                    error={errors.email?.message}
+                    errorMessage={errors.email?.message}
+                    variant="bordered"
                   />
                 )}
                 rules={{ required: t('enter_your_email') }}
               />
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="flex justify-center">
               <Button
+                type="submit"
                 color="primary">
                 {t('reset_password')}
 
@@ -98,7 +99,7 @@ const ForgotPasswordForm = (props: PropsForgotPasswordForm) => {
             </div>
           </form>
           <div className="text-center">
-            <Link to={getRoutes('HOME')} className="d-flex align-items-center justify-content-center">
+            <Link to={getRoutes('HOME')} className="d-flex align-items-center justify-content-center text-primary">
               <i className="bx bx-chevron-left scaleX-n1-rtl"></i>
               {t('back_to_login')}
             </Link>

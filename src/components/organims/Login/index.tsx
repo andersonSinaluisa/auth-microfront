@@ -1,6 +1,5 @@
 import { APP_NAME } from "../../../config/constans";
 import { LoginDto } from "../../../services/Dtos";
-import ImageCover from "../../atoms/ImageCover";
 import LoginForm from "../../molecules/LoginForm";
 
 interface Props {
@@ -11,41 +10,38 @@ interface Props {
 const Login = (props: Props) => {
 
     return (
-        <div className="authentication-wrapper authentication-cover">
-            <div className="authentication-inner row m-0">
-                {/* /Left Text */}
-                <div className="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center">
-                    <ImageCover
-                        img="/assets/img/pages/login-light.png"
-                        title={"Inicia Sesión en " + APP_NAME}
-                        subtitle={<p className="mb-4">Please sign-in to your account and start the adventure</p>}
-                    >
-
-
-                    </ImageCover>
+        <div className="flex  ">
+                {/* Left Text */}
+                <div className="hidden lg:flex flex-col w-1/2">
+                    <img
+                        src="/assets/images/login-ilustration.svg"
+                        className="lg:w-[90%] h-[100vh]"
+                    />
                 </div>
                 {/* /Left Text */}
 
                 {/* Login */}
-                <div className="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4 bg-white">
-                    <div className="w-px-400 mx-auto">
+            <div className="flex flex-col w-full lg:w-1/2 xl:w-1/3  bg-white justify-center items-center m-8 ">
+                    <div className="w-full  max-w-md mx-auto">
                         {/* Logo */}
-
                         {/* /Logo */}
-                        <h4 className="mb-2">Welcome to Frest! 👋</h4>
-                        <p className="mb-4">Please sign-in to your account and start the adventure</p>
+                        <div className="flex flex-row  justify-center mb-10">
+                            <img src="/assets/images/logo.svg" className="w-1/3" />
+
+                        </div>
+                        <h4 className="text-2xl font-semibold mb-2 text-gray-800">
+                            Welcome to {APP_NAME}! 👋
+                        </h4>
+                        <p className="text-gray-600 mb-6">Please sign-in to your account and start the adventure</p>
 
                         <LoginForm
                             onSubmit={props.handleSubmit}
                             error={props.error}
                             onClosed={props.onClosed}
                         />
-
-
                     </div>
-                </div>
-                {/* /Login */}
             </div>
+                {/* /Login */}
         </div>
     )
 

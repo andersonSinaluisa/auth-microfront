@@ -3,8 +3,10 @@
 import VerifyEmailCard from '../../molecules/VerifyEmailCard'
 const VerifyEmail = ()=>{
   return (
-        <div className="authentication-wrapper authentication-basic px-4">
-          <div className="authentication-inner py-4">
+    <div className="h-screen bg-primary-50">
+      <div className="flex flex-col h-full justify-center">
+
+        <div className="max-w-2xl mx-auto">
             <VerifyEmailCard
               title="Verica tu correo electronico"
               textSkip="omitir"
@@ -14,8 +16,10 @@ const VerifyEmail = ()=>{
               onResend={()=>{}}
 
               />
-          </div>
         </div>
+      </div>
+
+    </div>
   )
 }
 

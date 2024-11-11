@@ -1,5 +1,5 @@
 
-import {Card, CardBody} from 'as-react-frest';
+import { Button, Card, CardBody } from '@nextui-org/react';
 import React from 'react';
 
 
@@ -25,13 +25,18 @@ const VerifyEmailCard = (props:PropsVerifyEmail)=>{
             <p className="text-start">
             {props.description}
             </p>
-            <a className="btn btn-primary w-100 my-3" href="#"
-            onClick={()=>props.onSkip()}> {props.textSkip} </a>
+            <Button  
+            color="primary"
+
+            onClick={() => props.onSkip()}> {props.textSkip} </Button>
             <p className="text-center">
              {props.textQuestion}
-              <a href="javascript:void(0);"
+            <Button 
+              color="primary"
+
+            variant='light'
               onClick={()=>props.onResend()}
-              > {props.textResend} </a>
+            > {props.textResend} </Button>
             </p>
         </>
       </CardBody>

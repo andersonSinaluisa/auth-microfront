@@ -34,7 +34,7 @@ const ResetPasswordPage = () => {
 
 
   return (
-    tokenIsValid ?
+    !tokenIsValid ?
       <ResetPassword
         error=""
         handleSubmit={handleSubmit}
